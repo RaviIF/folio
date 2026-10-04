@@ -1042,7 +1042,7 @@
       font-family: inherit;
       pointer-events: all;
       overflow: hidden;
-      transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+      transition: transform 0.15s cubic-bezier(0.80, 0, 0.30, 1);
     }
 
     .preloader.is-loaded {
@@ -1067,8 +1067,15 @@
     }
 
     @keyframes pulseDot {
-      from { transform: scale(0.8); opacity: 0.5; }
-      to { transform: scale(1.4); opacity: 1; }
+      from {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+
+      to {
+        transform: scale(1.4);
+        opacity: 1;
+      }
     }
 
     .preloader__text-wrap {
@@ -1085,7 +1092,7 @@
       display: inline-block;
       opacity: 0;
       transform: translateY(100%);
-      transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 0.15s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     .preloader__text.active {
@@ -1107,7 +1114,7 @@
     <div class="preloader__content">
       <div class="preloader__dot"></div>
       <div class="preloader__text-wrap">
-        <span class="preloader__text" id="preloader-word">Welcome</span>
+        <span class="preloader__text" id="preloader-word">Hello</span>
       </div>
     </div>
   </div>
@@ -1128,14 +1135,14 @@
     <div class="hero__inner">
       <!-- 5. NAV BAR -->
       <header class="nav">
-        <!-- BRAND -->
-        <a class="brand" href="#hero">
-          <svg class="rise" style="--i:0" width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <!-- BRAND 
+        <a class="brand" href="#hero">-->
+        <!-- <svg class="rise" style="--i:0" width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
             <path d="M16 2.5 29.5 16 16 29.5 2.5 16 16 2.5Z" stroke="#141414" stroke-width="1.7"
               stroke-linejoin="round" />
-            <path d="M16 9.5 22.5 16 16 22.5 9.5 16 16 9.5Z" fill="#141414" />
-          </svg>
-          <span class="rise" style="--i:1">Neha Patel</span>
+              <path d="M16 9.5 22.5 16 16 22.5 9.5 16 16 9.5Z" fill="#141414" />  -->
+        </svg>
+        <!-- <span class="rise" style="--i:1">Neha Patel</span>  -->
         </a>
 
         <!-- LINKS & MOBILE MENU PANEL -->
@@ -1197,7 +1204,8 @@
           <div style="position: relative; width: 100%;">
             <textarea id="prompt-input" class="prompt__input" rows="2"
               placeholder="Ask about my resume, tech stack, serverless AWS cloud platform, RAG AI assistant, or research..."></textarea>
-            <canvas id="disintegrate-canvas" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events: none; z-index: 10;"></canvas>
+            <canvas id="disintegrate-canvas"
+              style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events: none; z-index: 10;"></canvas>
           </div>
 
           <div class="prompt__bar">
@@ -1679,9 +1687,9 @@
       });
     })();
 
-    /* 1. Words Preloader (Skiper UI 8) */
+    /* 1. Words Preloader (Skiper UI 8 - Multilingual Fast Reveal) */
     (function initPreloader() {
-      const words = ["Welcome", "Software Engineer", "Serverless AWS Cloud", "Privacy RAG AI", "Published Researcher", "Neha Patel"];
+      const words = ["Hello", "नमस्ते", "કેમ છો", "Bonjour", "Hola", "Ciao", "こんにちは", "Hallo", "Olá", "Neha Patel"];
       const el = document.getElementById('preloader-word');
       const loader = document.getElementById('words-preloader');
       if (!el || !loader) return;
@@ -1701,19 +1709,19 @@
             }
             index++;
             if (index < words.length) {
-              setTimeout(showNextWord, 160);
+              setTimeout(showNextWord, 70);
             } else {
               setTimeout(() => {
                 loader.classList.add('is-loaded');
-              }, 380);
+              }, 120);
             }
-          }, 280);
+          }, 120);
         }
       }
-      setTimeout(showNextWord, 150);
+      setTimeout(showNextWord, 60);
     })();
 
-    /* 2. Canvas Particle Vanishing Text Effect (Skiper UI 56) */
+    /* 2. Canvas Pixel-Disintegration Vanishing Animation (Skiper UI 56 - Ultra HD Devouring Details) */
     const particleCanvas = document.getElementById('disintegrate-canvas');
     let ctx = null;
     let particles = [];
@@ -1722,9 +1730,11 @@
     function initParticleCanvas() {
       if (!particleCanvas) return;
       const rect = particleCanvas.getBoundingClientRect();
-      particleCanvas.width = rect.width;
-      particleCanvas.height = rect.height;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      particleCanvas.width = rect.width * dpr;
+      particleCanvas.height = rect.height * dpr;
       ctx = particleCanvas.getContext('2d');
+      if (ctx) ctx.scale(dpr, dpr);
     }
 
     window.addEventListener('resize', initParticleCanvas);
@@ -1743,58 +1753,170 @@
         return;
       }
 
-      const numParticles = Math.min(Math.max((text || "abc").length * 14, 50), 140);
-      const colors = ['#2e7d32', '#4caf50', '#81c784', '#a5d6a7', '#ffffff', '#e8f5e9'];
+      const rect = particleCanvas.getBoundingClientRect();
+      const w = rect.width;
+      const h = rect.height;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-      particles = [];
-      const startX = 20;
-      const startY = 24;
-      const widthRange = Math.min(particleCanvas.width - 40, (text.length || 5) * 10 + 40);
+      particleCanvas.width = w * dpr;
+      particleCanvas.height = h * dpr;
+      ctx = particleCanvas.getContext('2d');
+      if (ctx) ctx.scale(dpr, dpr);
 
-      for (let i = 0; i < numParticles; i++) {
-        particles.push({
-          x: startX + Math.random() * widthRange,
-          y: startY + Math.random() * 25,
-          vx: (Math.random() - 0.5) * (isBackspace ? 4.5 : 3.5),
-          vy: isBackspace ? (Math.random() - 0.5) * 4 : -Math.random() * 3.8 - 0.8,
-          size: Math.random() * 2.8 + 1.2,
-          alpha: 1,
-          decay: Math.random() * 0.035 + 0.02,
-          color: colors[Math.floor(Math.random() * colors.length)]
+      // Offscreen Canvas for crisp text pixel sampling
+      const offCanvas = document.createElement('canvas');
+      offCanvas.width = w * dpr;
+      offCanvas.height = h * dpr;
+      const offCtx = offCanvas.getContext('2d');
+      if (offCtx) offCtx.scale(dpr, dpr);
+
+      const style = window.getComputedStyle(input);
+      const fontSize = style.fontSize || '16px';
+      const fontFamily = style.fontFamily || 'Poppins, sans-serif';
+      const fontWeight = style.fontWeight || '400';
+      const textColor = style.color || '#111111';
+      
+      offCtx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
+      offCtx.fillStyle = textColor;
+      offCtx.textBaseline = 'top';
+
+      const paddingLeft = parseFloat(style.paddingLeft) || 8;
+      const paddingTop = parseFloat(style.paddingTop) || 8;
+
+      // Measure character bounding boxes
+      const chars = text.split('');
+      const totalChars = chars.length;
+      const charBounds = [];
+
+      let currentX = paddingLeft;
+      for (let i = 0; i < totalChars; i++) {
+        const ch = chars[i];
+        const charWidth = offCtx.measureText(ch).width;
+        const charDelay = isBackspace ? i * 50 : (totalChars - 1 - i) * 65;
+        
+        charBounds.push({
+          char: ch,
+          index: i,
+          minX: currentX,
+          maxX: currentX + Math.max(charWidth, 4),
+          delay: charDelay
         });
+        currentX += charWidth;
       }
 
-      input.style.transition = 'opacity 0.22s ease';
-      input.style.opacity = '0';
+      const minTextX = paddingLeft;
+      const maxTextX = Math.max(currentX, paddingLeft + 10);
 
-      function renderParticles() {
+      // Render full text offscreen
+      offCtx.fillText(text, paddingLeft, paddingTop);
+
+      let imgData;
+      try {
+        imgData = offCtx.getImageData(0, 0, w * dpr, h * dpr);
+      } catch (e) {
+        if (onComplete) onComplete();
+        return;
+      }
+
+      const data = imgData.data;
+      particles = [];
+      const step = 1;
+
+      const bufW = Math.floor(w * dpr);
+      const bufH = Math.floor(h * dpr);
+
+      const themeColors = ['#111111', '#181818', '#2e7d32', '#388e3c', '#1b5e20', '#4caf50', '#81c784'];
+
+      for (let py = 0; py < bufH; py += step * 2) {
+        for (let px = 0; px < bufW; px += step * 2) {
+          const idx = (py * bufW + px) * 4;
+          const alpha = data[idx + 3];
+          if (alpha > 25) {
+            const cssX = px / dpr;
+            const cssY = py / dpr;
+
+            const charItem = charBounds.find(c => cssX >= c.minX - 1.5 && cssX <= c.maxX + 1.5) 
+              || { delay: 0 };
+            
+            const devourDelay = charItem.delay + Math.random() * 14;
+            const chosenColor = themeColors[Math.floor(Math.random() * themeColors.length)];
+
+            particles.push({
+              x: cssX,
+              y: cssY,
+              vx: (Math.random() * 2.2 + 0.6) * (isBackspace ? -1 : 1),
+              vy: (Math.random() - 0.7) * 2.2,
+              size: Math.random() * 1.6 + 0.9,
+              alpha: 1,
+              decay: Math.random() * 0.028 + 0.018,
+              delay: devourDelay,
+              seed: Math.random() * 100,
+              color: chosenColor
+            });
+          }
+        }
+      }
+
+      if (particles.length === 0) {
+        input.value = '';
+        if (onComplete) onComplete();
+        return;
+      }
+
+      // Input remains 100% visible and un-blurred! We clip it letter-by-letter as sweep progresses.
+      input.style.opacity = '1';
+
+      const startTime = performance.now();
+      const totalDuration = Math.max(totalChars * 65 + 180, 400);
+
+      function renderParticles(now) {
         if (!ctx) return;
-        ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
-        let alive = false;
+        ctx.clearRect(0, 0, w, h);
+        const elapsed = now - startTime;
+        let activeCount = 0;
 
+        // Smooth right-to-left sweep clipping of the actual native textarea element
+        const progress = Math.min(elapsed / (totalChars * 65 || 1), 1);
+        const sweepX = isBackspace 
+          ? minTextX + progress * (maxTextX - minTextX + 10)
+          : maxTextX - progress * (maxTextX - minTextX + 10);
+        
+        // Clip the textarea: right side gets hidden as sweepX moves left
+        if (isBackspace) {
+          const clipLeft = Math.max(0, sweepX);
+          input.style.clipPath = `inset(0 0 0 ${clipLeft}px)`;
+        } else {
+          const clipRight = Math.max(0, w - sweepX);
+          input.style.clipPath = `inset(0 ${clipRight}px 0 0)`;
+        }
+
+        // Draw ONLY active disintegrating particles on canvas
         particles.forEach(p => {
-          if (p.alpha > 0) {
-            alive = true;
-            p.x += p.vx;
+          if (elapsed >= p.delay && p.alpha > 0) {
+            activeCount++;
+            p.x += p.vx + Math.sin(elapsed * 0.008 + p.seed) * 0.4;
             p.y += p.vy;
+            p.vy -= 0.028;
+            p.size = Math.max(0.3, p.size * 0.98);
             p.alpha -= p.decay;
 
-            ctx.save();
-            ctx.globalAlpha = Math.max(p.alpha, 0);
-            ctx.fillStyle = p.color;
-            ctx.shadowColor = p.color;
-            ctx.shadowBlur = 6;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.restore();
+            if (p.alpha > 0) {
+              ctx.save();
+              ctx.globalAlpha = Math.max(p.alpha, 0);
+              ctx.fillStyle = p.color;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+              ctx.fill();
+              ctx.restore();
+            }
           }
         });
 
-        if (alive) {
+        if (elapsed < totalDuration || activeCount > 0) {
           animId = requestAnimationFrame(renderParticles);
         } else {
-          ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+          ctx.clearRect(0, 0, w, h);
+          input.style.clipPath = '';
           input.value = '';
           input.style.opacity = '1';
           if (onComplete) onComplete();
@@ -1802,15 +1924,19 @@
       }
 
       if (animId) cancelAnimationFrame(animId);
-      renderParticles();
+      animId = requestAnimationFrame(renderParticles);
     }
 
     function askAI(questionText) {
       const input = document.getElementById('prompt-input');
+      if (!input) return;
       input.value = questionText;
-      triggerVanishingAnimation(function () {
-        handleAISubmitWithQuery(questionText);
-      });
+      input.style.opacity = '1';
+      setTimeout(function () {
+        triggerVanishingAnimation(function () {
+          handleAISubmitWithQuery(questionText);
+        });
+      }, 40);
     }
 
     function clearAI() {
