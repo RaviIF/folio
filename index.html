@@ -92,10 +92,10 @@
       max-width: var(--shell);
       margin: 0 auto;
       padding: 24px 24px 0;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 16px;
+      gap: 32px;
     }
 
     .brand {
@@ -776,12 +776,14 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
+      align-items: stretch;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      align-items: stretch;
     }
 
     @media (max-width: 900px) {
@@ -802,6 +804,7 @@
       box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
+      height: 100%;
     }
 
     .card:hover {
@@ -1153,6 +1156,7 @@
             <li class="rise" style="--i:4"><a href="#projects">Projects</a></li>
             <li class="rise" style="--i:5"><a href="#research">Research</a></li>
             <li class="rise" style="--i:6"><a href="#experience">Experience</a></li>
+            <li class="rise" style="--i:7"><a href="mailto:nancyyy1405@gmail.com">Contact</a></li>
           </ul>
           <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
             <a class="btn-dark menu__cta" href="mailto:nancyyy1405@gmail.com">Contact</a>
@@ -1385,8 +1389,7 @@
         <div class="card">
           <div class="card__meta">
             <span class="card__meta-tag">January 2026</span>
-            <span class="card__meta-tag">Cloud / AWS</span>
-            <span class="card__meta-tag">Serverless System</span>
+            <span class="card__meta-tag">AWS Cloud / Serverless</span>
           </div>
           <h3 class="card__title">Cloud-Based Document Processing Platform</h3>
           <p class="card__desc">
@@ -1411,7 +1414,6 @@
             <span class="tag">SQS</span>
             <span class="tag">React</span>
             <span class="tag">Python</span>
-            <span class="tag">C++</span>
             <span class="tag">CloudWatch</span>
           </div>
         </div>
@@ -1426,15 +1428,23 @@
           <p class="card__desc">
             A privacy-first AI assistant utilizing Retrieval-Augmented Generation (RAG) to process large datasets
             offline with zero data leakage.
-          <ul class="card__bullets">
-            <li>Implemented local LLM pipeline ensuring offline processing and data privacy.</li>
-            <li>Built document pipeline with PyMuPDF chunking and embedding generation.</li>
-            <li>Integrated ChromaDB vector database for high-speed semantic search.</li>
-            <li>Developed FastAPI REST endpoints deployed on AWS EC2.</li>
-          </ul>
           </p>
+          <ul class="card__bullets">
+            <li>Engineered local open-source LLM execution pipeline using Ollama models ensuring 100% offline data
+              privacy and zero cloud leakage.</li>
+            <li>Built an automated document parsing pipeline using PyMuPDF for intelligent semantic text chunking and
+              vector embedding generation.</li>
+            <li>Integrated ChromaDB vector database for high-speed similarity search, context retrieval, and low-latency
+              QA indexing.</li>
+            <li>Developed scalable FastAPI REST microservices deployed on AWS EC2 for seamless client-side querying.
+            </li>
+            <li>Designed contextual prompt engineering workflows delivering accurate, hallucination-free answers with
+              source citations.</li>
+          </ul>
           <div class="tags">
             <span class="tag">Python</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">RAG Architecture</span>
             <span class="tag">LangChain</span>
             <span class="tag">HuggingFace</span>
             <span class="tag">FastAPI</span>
@@ -1455,17 +1465,25 @@
             vehicle density streaming.
           </p>
           <ul class="card__bullets">
-            <li>Preprocessed traffic dataset using Pandas &amp; NumPy with time-of-day feature engineering.</li>
-            <li>Trained and evaluated regression models to estimate signal timing in seconds.</li>
-            <li>Integrated OpenCV and YOLO models to count vehicles live from video feeds.</li>
+            <li>Preprocessed large-scale urban traffic datasets using Pandas &amp; NumPy with time-of-day feature
+              engineering.</li>
+            <li>Trained and evaluated multi-variable regression models (Random Forest &amp; XGBoost) to estimate signal
+              timing in seconds.</li>
+            <li>Integrated OpenCV and YOLO models to count vehicle density live from real-time video feeds.</li>
+            <li>Optimized inference latency for edge hardware deployment on traffic camera processors with sub-50ms
+              processing.</li>
+            <li>Engineered automated signal phase adjustment logic reducing average intersection wait times
+              significantly.</li>
           </ul>
           <div class="tags">
             <span class="tag">Python</span>
             <span class="tag">OpenCV</span>
-            <span class="tag">YOLO</span>
+            <span class="tag">YOLOv8</span>
             <span class="tag">Machine Learning</span>
             <span class="tag">Pandas</span>
             <span class="tag">NumPy</span>
+            <span class="tag">Edge CV</span>
+            <span class="tag">XGBoost</span>
           </div>
         </div>
 
@@ -1481,15 +1499,26 @@
             responsive UI navigation.
           </p>
           <ul class="card__bullets">
-            <li>Developed modular frontend interface using React components.</li>
-            <li>Configured backend REST API services with SQL storage for recommendation queries.</li>
+            <li>Developed a modular, responsive frontend interface using React components with smooth genre filtering
+              and instant search.</li>
+            <li>Configured robust RESTful API microservice endpoints powered by Node.js to handle user queries and
+              recommendation requests.</li>
+            <li>Engineered relational SQL database schemas with optimized query indexing for rapid recommendation
+              retrieval and user data persistence.</li>
+            <li>Implemented content-based recommendation logic matching user reading histories and preferences with
+              catalog genres and ratings.</li>
+            <li>Designed interactive features including user rating systems, custom bookmarking, reading lists, and
+              mobile-friendly responsive navigation.</li>
           </ul>
           <div class="tags">
             <span class="tag">React</span>
             <span class="tag">Node.js</span>
             <span class="tag">REST APIs</span>
             <span class="tag">SQL</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Express.js</span>
             <span class="tag">Full-Stack</span>
+            <span class="tag">UI Design</span>
           </div>
         </div>
       </div>
@@ -1547,62 +1576,122 @@
   <!-- EXPERIENCE & CERTIFICATIONS SECTION -->
   <section class="section" id="experience">
     <div class="shell">
-      <div class="grid-2">
-        <!-- Work Experience -->
-        <div>
-          <div class="section-header" style="margin-bottom: 28px;">
-            <span class="section-header__tag">Work Experience</span>
-            <h2 class="section-header__title">Industry Experience</h2>
-          </div>
+      <!-- Work Experience -->
+      <div class="section-header" style="margin-bottom: 32px;">
+        <span class="section-header__tag">Work Experience</span>
+        <h2 class="section-header__title">Industry Experience</h2>
+      </div>
 
-          <div class="card">
-            <div class="card__meta">
-              <span class="card__meta-tag">May 2025 – June 2025</span>
-              <span class="card__meta-tag">Hybrid, India</span>
-            </div>
-            <h3 class="card__title">Tech Elecon Pvt. Ltd.</h3>
-            <div style="font-weight: 500; color: var(--accent); margin-bottom: 12px;">Web Development Intern</div>
-            <ul class="card__bullets">
-              <li>Completed a 4-week internship focused on front-end web development using modern JavaScript frameworks.
-              </li>
-              <li>Developed responsive, user-friendly web interfaces adhering to component-based architecture.</li>
-              <li>Gained hands-on experience in front-end design, code debugging, and cross-browser performance
-                optimization.</li>
-            </ul>
+      <div class="grid-2" style="margin-bottom: 56px;">
+        <div class="card">
+          <div class="card__meta">
+            <span class="card__meta-tag">Backend Engineer Intern</span>
+            <span class="card__meta-tag">RAG / LLM &amp; APIs</span>
+          </div>
+          <h3 class="card__title">Invisible Fiction</h3>
+          <div style="font-weight: 500; color: var(--accent); margin-bottom: 12px;">Backend Engineer Intern</div>
+          <ul class="card__bullets">
+            <li>Architected and developed production RESTful APIs and high-performance FastAPI microservices.</li>
+            <li>Engineered enterprise and client-based AI projects utilizing Ollama open-source models with
+              Retrieval-Augmented Generation (RAG) based architectures.</li>
+            <li>Practiced rigorous Version Control (VC) using Git for collaborative code development, feature branching,
+              and pull request workflows.</li>
+            <li>Integrated local open-source LLMs into backend services to deliver secure, scalable, and context-aware
+              AI solutions.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Ollama Models</span>
+            <span class="tag">RAG Architecture</span>
+            <span class="tag">Git / VC</span>
+            <span class="tag">Python</span>
+            <span class="tag">Backend</span>
           </div>
         </div>
 
-        <!-- Certifications -->
-        <div id="certifications">
-          <div class="section-header" style="margin-bottom: 28px;">
-            <span class="section-header__tag">Certifications</span>
-            <h2 class="section-header__title">Credentials &amp; Awards</h2>
+        <div class="card">
+          <div class="card__meta">
+            <span class="card__meta-tag">May 2025 – June 2025</span>
+            <span class="card__meta-tag">Hybrid, India</span>
           </div>
+          <h3 class="card__title">Tech Elecon Pvt. Ltd.</h3>
+          <div style="font-weight: 500; color: var(--accent); margin-bottom: 12px;">Web Development Intern</div>
+          <ul class="card__bullets">
+            <li>Completed a 4-week internship focused on front-end web development using modern JavaScript frameworks.
+            </li>
+            <li>Developed responsive, user-friendly web interfaces adhering to component-based architecture.</li>
+            <li>Collaborated with engineering teams on UI design implementation, cross-browser compatibility, and DOM
+              optimization.</li>
+            <li>Applied RESTful API integration for dynamic frontend data rendering and form validation workflows.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Frontend</span>
+            <span class="tag">UI Design</span>
+          </div>
+        </div>
+      </div>
 
+      <!-- Certifications -->
+      <div id="certifications">
+        <div class="section-header" style="margin-bottom: 32px;">
+          <span class="section-header__tag">Certifications</span>
+          <h2 class="section-header__title">Credentials &amp; Awards</h2>
+        </div>
+
+        <div class="grid-2">
           <div class="card">
+            <div class="card__meta">
+              <span class="card__meta-tag">Data &amp; Security</span>
+              <span class="card__meta-tag">Certified</span>
+            </div>
+            <h3 class="card__title">Data Science &amp; Cybersecurity</h3>
+            <div style="font-weight: 500; color: var(--accent); margin-bottom: 12px;">Professional Certifications</div>
             <ul class="card__bullets" style="padding-left: 0; list-style: none;">
-              <li style="margin-bottom: 18px; display: flex; gap: 12px; align-items: flex-start;">
+              <li style="margin-bottom: 16px; display: flex; gap: 12px; align-items: flex-start;">
                 <span style="font-size: 20px;">🎓</span>
                 <div>
                   <strong style="display: block; font-size: 15px; color: var(--ink);">The Ultimate Job Ready Data
                     Science Course</strong>
-                  <span style="font-size: 13px; color: var(--muted);">Advanced Data Science, ML &amp; Analytics</span>
+                  <span style="font-size: 13px; color: var(--muted);">Advanced Data Science, Machine Learning &amp;
+                    Analytics</span>
                 </div>
               </li>
-              <li style="margin-bottom: 18px; display: flex; gap: 12px; align-items: flex-start;">
-                <span style="font-size: 20px;">🛡️</span>
-                <div>
-                  <strong style="display: block; font-size: 15px; color: var(--ink);">Ethical Hacking Essentials
-                    (EHE)</strong>
-                  <span style="font-size: 13px; color: var(--muted);">EC-Council Certification</span>
-                </div>
-              </li>
-              <li style="margin-bottom: 18px; display: flex; gap: 12px; align-items: flex-start;">
+              <li style="display: flex; gap: 12px; align-items: flex-start;">
                 <span style="font-size: 20px;">🔐</span>
                 <div>
                   <strong style="display: block; font-size: 15px; color: var(--ink);">Foundations of
                     Cybersecurity</strong>
                   <span style="font-size: 13px; color: var(--muted);">Google Career Certificate</span>
+                </div>
+              </li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Data Science</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Cybersecurity</span>
+              <span class="tag">Google Certified</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__meta">
+              <span class="card__meta-tag">Cloud &amp; Ethical Hacking</span>
+              <span class="card__meta-tag">Certified</span>
+            </div>
+            <h3 class="card__title">AWS Cloud &amp; Ethical Hacking</h3>
+            <div style="font-weight: 500; color: var(--accent); margin-bottom: 12px;">Professional Certifications</div>
+            <ul class="card__bullets" style="padding-left: 0; list-style: none;">
+              <li style="margin-bottom: 16px; display: flex; gap: 12px; align-items: flex-start;">
+                <span style="font-size: 20px;">🛡️</span>
+                <div>
+                  <strong style="display: block; font-size: 15px; color: var(--ink);">Ethical Hacking Essentials
+                    (EHE)</strong>
+                  <span style="font-size: 13px; color: var(--muted);">EC-Council Certification</span>
                 </div>
               </li>
               <li style="display: flex; gap: 12px; align-items: flex-start;">
@@ -1613,6 +1702,12 @@
                 </div>
               </li>
             </ul>
+            <div class="tags">
+              <span class="tag">AWS Cloud</span>
+              <span class="tag">Ethical Hacking</span>
+              <span class="tag">EC-Council</span>
+              <span class="tag">Cloud Security</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1629,12 +1724,12 @@
       </p>
 
       <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-        <a class="btn-dark" href="mailto:nancyyy1405@gmail.com" style="background:#fff; color:#141414;">✉️ Email:
+        <a class="btn-dark" href="mailto:nancyyy1405@gmail.com" style="background:#fff; color:#141414;"> Email:
           nancyyy1405@gmail.com</a>
         <a class="btn-dark" href="https://github.com/neha-1405" target="_blank" rel="noopener noreferrer"
-          style="background:#24292e; color:#fff;">💻 GitHub: neha-1405</a>
+          style="background:#24292e; color:#fff;"> GitHub: neha-1405</a>
         <a class="btn-dark" href="23dit047.pdf" download="Neha_Patel_Resume.pdf"
-          style="background:#2e7d32; color:#fff;">📄 Download Resume</a>
+          style="background:#2e7d32; color:#fff;">Download Resume</a>
         <a class="btn-dark" href="#hero">Back to Top</a>
       </div>
 
@@ -1646,6 +1741,19 @@
 
   <!-- 14. JAVASCRIPT -->
   <script>
+    // Global listener: clicking any Contact button or link directly opens email mailto
+    document.addEventListener('click', function (e) {
+      const target = e.target.closest('a, button');
+      if (target) {
+        const text = (target.textContent || '').trim().toLowerCase();
+        const href = (target.getAttribute('href') || '').toLowerCase();
+        if (text === 'contact' || href === '#contact') {
+          e.preventDefault();
+          window.location.href = 'mailto:nancyyy1405@gmail.com';
+        }
+      }
+    });
+
     (function () {
       const toggle = document.getElementById('menu-toggle');
       const menu = document.getElementById('site-menu');
@@ -1775,7 +1883,7 @@
       const fontFamily = style.fontFamily || 'Poppins, sans-serif';
       const fontWeight = style.fontWeight || '400';
       const textColor = style.color || '#111111';
-      
+
       offCtx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
       offCtx.fillStyle = textColor;
       offCtx.textBaseline = 'top';
@@ -1793,7 +1901,7 @@
         const ch = chars[i];
         const charWidth = offCtx.measureText(ch).width;
         const charDelay = isBackspace ? i * 50 : (totalChars - 1 - i) * 65;
-        
+
         charBounds.push({
           char: ch,
           index: i,
@@ -1835,9 +1943,9 @@
             const cssX = px / dpr;
             const cssY = py / dpr;
 
-            const charItem = charBounds.find(c => cssX >= c.minX - 1.5 && cssX <= c.maxX + 1.5) 
+            const charItem = charBounds.find(c => cssX >= c.minX - 1.5 && cssX <= c.maxX + 1.5)
               || { delay: 0 };
-            
+
             const devourDelay = charItem.delay + Math.random() * 14;
             const chosenColor = themeColors[Math.floor(Math.random() * themeColors.length)];
 
@@ -1877,10 +1985,10 @@
 
         // Smooth right-to-left sweep clipping of the actual native textarea element
         const progress = Math.min(elapsed / (totalChars * 65 || 1), 1);
-        const sweepX = isBackspace 
+        const sweepX = isBackspace
           ? minTextX + progress * (maxTextX - minTextX + 10)
           : maxTextX - progress * (maxTextX - minTextX + 10);
-        
+
         // Clip the textarea: right side gets hidden as sweepX moves left
         if (isBackspace) {
           const clipLeft = Math.max(0, sweepX);
@@ -1972,8 +2080,8 @@
         reply = "<strong>🤖 ALP (Autonomous Learning Partner):</strong> Neha built a privacy-first AI assistant using RAG (Retrieval-Augmented Generation). Key features include offline LLM processing to prevent data leakage, document parsing with PyMuPDF, ChromaDB vector semantic search, and FastAPI microservices deployed on AWS EC2!";
       } else if (text.includes("research") || text.includes("yolo") || text.includes("sumo") || text.includes("traffic") || text.includes("paper") || text.includes("springer")) {
         reply = "<strong>📑 Springer Publication (ICT4SD 2026):</strong> Neha published research titled <em>'Transponder-Free emergency vehicle preemption and adaptive signal control for heterogeneous Indian urban Traffic using DQN in YOLO V8'</em>. It achieved 91.3% faster emergency clearance, 13.6%-16.8% delay reduction, and ~41ms edge response time tested via SUMO in Ahmedabad.";
-      } else if (text.includes("experience") || text.includes("elecon") || text.includes("intern")) {
-        reply = "<strong>💼 Internship Experience:</strong> Web Development Intern at Tech Elecon Pvt. Ltd (May 2025 – June 2025). Focused on frontend JavaScript frameworks, component-based architectures, responsive layout design, and optimization.";
+      } else if (text.includes("experience") || text.includes("elecon") || text.includes("invisible") || text.includes("fiction") || text.includes("intern") || text.includes("backend") || text.includes("ollama") || text.includes("fastapi")) {
+        reply = "<strong>💼 Internship Experience:</strong><br>• <strong>Invisible Fiction (Backend Engineer Intern):</strong> Developed REST and FastAPI microservices, version control (VC) with Git, and client-based RAG projects powered by Ollama local models.<br>• <strong>Tech Elecon Pvt. Ltd. (Web Development Intern):</strong> Focused on front-end JavaScript frameworks, component architectures, and UI performance optimization.";
       } else if (text.includes("certif") || text.includes("google") || text.includes("security")) {
         reply = "<strong>📜 Certifications:</strong> AWS Academy Graduate, Google Foundations of Cybersecurity, EC-Council Ethical Hacking Essentials (EHE), and The Ultimate Job Ready Data Science Course.";
       } else {
